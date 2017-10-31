@@ -4,7 +4,7 @@ import json
 import random
 import requests as req
 import datetime
-import config
+#import config
 
 
 
