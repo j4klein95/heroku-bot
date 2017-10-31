@@ -28,13 +28,13 @@ api_key = os.environ.get('api_key')
 # Create a function that gets the weather in London and Tweets it
 def WeatherTweet():
 
-    # Construct a Query URL for the OpenWeatherMap
+    # Construct a Query URL
     url = "http://api.openweathermap.org/data/2.5/weather?"
     city = "London"
     units = "imperial"
     query_url = url + "appid=" + api_key + "&q=" + city + "&units=" + units
 
-    # Perform the API call to get the weather
+    # Perform the API 
     weather_response = req.get(query_url)
     weather_json = weather_response.json()
     print(weather_json)
