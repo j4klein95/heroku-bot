@@ -5,6 +5,7 @@ import random
 import requests as req
 import datetime
 import os
+from citipy import citipy
 #import config
 
 #config = "./config.py"
@@ -27,14 +28,18 @@ api_key = os.environ.get('api_key')
 
 # Create a function that gets the weather in London and Tweets it
 def WeatherTweet():
-
+    coordinates = [(rand.randint(-90, 90), rand.randint(-180, 180))]
+    for coordinate_pair in coordinates:
+        lat, lon = coordinate_pair
+        nearest_city_obj = (citipy.nearest_city(lat, lon))
+        name = nearest_city_obj.city_name
     # Construct a Query URL
     url = "http://api.openweathermap.org/data/2.5/weather?"
-    city = "London"
+    city = name
     units = "imperial"
     query_url = url + "appid=" + api_key + "&q=" + city + "&units=" + units
 
-    # Perform the API 
+    # Perform the API
     weather_response = req.get(query_url)
     weather_json = weather_response.json()
     print(weather_json)
@@ -46,13 +51,12 @@ def WeatherTweet():
 
     # Tweet the weather
     api.update_status(
-        "London Weather as of %s: %s F" %
+        city + " Weather as of %s: %s F" %
         (datetime.datetime.now().strftime("%I:%M %p"),
-         weather_json["main"]["temp"]))
+        weather_json["main"]["temp"]))
 
     # Print success message
     print("Tweeted successfully, sir!")
-
 
 # Set timer to run every 1 hour
 while(True):
