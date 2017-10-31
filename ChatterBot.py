@@ -1,7 +1,7 @@
 import tweepy
 import time
 import json
-import random
+import random as rand
 import requests as req
 import datetime
 import os
