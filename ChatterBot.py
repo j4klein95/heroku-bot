@@ -4,19 +4,25 @@ import json
 import random
 import requests as req
 import datetime
+import os
 #import config
 
 #config = "./config.py"
 
 
 # Twitter API Keys
-consumer_key = ""#config.consumer_key
-consumer_secret = ""#config.consumer_secret
-access_token = ""#config.access_token
-access_token_secret = ""#config.access_token_secret
+consumer_key = os.environ.get('consumer_key')
+#config.consumer_key
+consumer_secret = os.environ.get('consumer_secret')
+#config.consumer_secret
+access_token = os.environ.get('access_token')
+#config.access_token
+access_token_secret = os.environ.get('access_token_secret')
+#config.access_token_secret
 
 # Weather API
-api_key = ""#config.api_key
+api_key = os.environ.get('api_key')
+#config.api_key
 
 
 # Create a function that gets the weather in London and Tweets it
