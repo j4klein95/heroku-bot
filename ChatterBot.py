@@ -4,9 +4,9 @@ import json
 import random
 import requests as req
 import datetime
-#import config
+import config
 
-
+#config = "./config.py"
 
 
 # Twitter API Keys
