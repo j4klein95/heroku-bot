@@ -16,7 +16,7 @@ access_token = ""#config.access_token
 access_token_secret = ""#config.access_token_secret
 
 # Weather API
-api_key = config.api_key
+api_key = ""#config.api_key
 
 
 # Create a function that gets the weather in London and Tweets it
