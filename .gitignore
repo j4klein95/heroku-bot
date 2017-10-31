@@ -1,3 +1,4 @@
 config.py
 try.ipynb
 .ipynb_checkpoints
+__pycache__
